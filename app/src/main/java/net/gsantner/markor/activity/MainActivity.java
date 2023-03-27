@@ -59,7 +59,7 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
     private ViewPager2 _viewPager;
     private GsFileBrowserFragment _notebook;
     private DocumentEditAndViewFragment _quicknote, _todo;
-    private MoreFragment _more;
+    //private MoreFragment _more;
     private FloatingActionButton _fab;
 
     private boolean _doubleBackToExitPressedOnce;
@@ -91,7 +91,7 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
 
         // Setup viewpager
         _viewPager.setAdapter(new SectionsPagerAdapter(getSupportFragmentManager()));
-        _viewPager.setOffscreenPageLimit(4);
+        _viewPager.setOffscreenPageLimit(3);
         _bottomNav.setOnItemSelectedListener(this);
         reduceViewpagerSwipeSensitivity();
 
@@ -125,7 +125,7 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
             manager.putFragment(outState, Integer.toString(R.id.nav_notebook), _notebook);
             manager.putFragment(outState, Integer.toString(R.id.nav_quicknote), _quicknote);
             manager.putFragment(outState, Integer.toString(R.id.nav_todo), _todo);
-            manager.putFragment(outState, Integer.toString(R.id.nav_more), _more);
+            //manager.putFragment(outState, Integer.toString(R.id.nav_more), _more);
         } catch (NullPointerException | IllegalStateException ignored) {
             Log.d(MainActivity.class.getName(), "Child fragments null in onSaveInstanceState()");
         }
@@ -145,7 +145,7 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
             _notebook = (GsFileBrowserFragment) manager.getFragment(savedInstanceState, Integer.toString(R.id.nav_notebook));
             _quicknote = (DocumentEditAndViewFragment) manager.getFragment(savedInstanceState, Integer.toString(R.id.nav_quicknote));
             _todo = (DocumentEditAndViewFragment) manager.getFragment(savedInstanceState, Integer.toString(R.id.nav_todo));
-            _more = (MoreFragment) manager.getFragment(savedInstanceState, Integer.toString(R.id.nav_more));
+            //_more = (MoreFragment) manager.getFragment(savedInstanceState, Integer.toString(R.id.nav_more));
         } catch (NullPointerException | IllegalStateException ignored) {
             Log.d(MainActivity.class.getName(), "Child fragment not found in onRestoreInstanceState()");
         }
@@ -154,7 +154,7 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
     // Reduces swipe sensitivity
     // Inspired by https://stackoverflow.com/a/72067439
     private void reduceViewpagerSwipeSensitivity() {
-        final int SLOP_MULTIPLIER = 4;
+        final int SLOP_MULTIPLIER = 3;
         try {
             final Field ff = ViewPager2.class.getDeclaredField("mRecyclerView");
             ff.setAccessible(true);
@@ -344,7 +344,7 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
         if (id == R.id.nav_notebook) return 0;
         if (id == R.id.nav_todo) return 1;
         if (id == R.id.nav_quicknote) return 2;
-        if (id == R.id.nav_more) return 3;
+        //if (id == R.id.nav_more) return 3;
         return 0;
     }
 
@@ -360,7 +360,7 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
         if (pos == 0) return getFileBrowserTitle();
         if (pos == 1) return getString(R.string.todo);
         if (pos == 2) return getString(R.string.quicknote);
-        if (pos == 3) return getString(R.string.more);
+        //if (pos == 3) return getString(R.string.more);
         return "";
     }
 
@@ -368,7 +368,7 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
         if (pos == 0) return _notebook;
         if (pos == 1) return _todo;
         if (pos == 2) return _quicknote;
-        if (pos == 3) return _more;
+        //if (pos == 3) return _more;
         return null;
     }
 
@@ -437,8 +437,8 @@ public class MainActivity extends MarkorBaseActivity implements GsFileBrowserFra
                 frag = _quicknote = DocumentEditAndViewFragment.newInstance(new Document(_appSettings.getQuickNoteFile()), Document.EXTRA_FILE_LINE_NUMBER_LAST, false);
             } else if (id == R.id.nav_todo) {
                 frag = _todo = DocumentEditAndViewFragment.newInstance(new Document(_appSettings.getTodoFile()), Document.EXTRA_FILE_LINE_NUMBER_LAST, false);
-            } else if (id == R.id.nav_more) {
-                frag = _more = MoreFragment.newInstance();
+            //} else if (id == R.id.nav_more) {
+            //    frag = _more = MoreFragment.newInstance();
             } else {
                 frag = _notebook = GsFileBrowserFragment.newInstance();
             }

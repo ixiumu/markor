@@ -443,6 +443,7 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
 
     <string name="quicknote">快速笔记</string>
     <string name="todo">待办</string>
+    <string name="backup">备份</string>
 
     <string name="git">Git</string>
     <string name="clone">克隆</string>
