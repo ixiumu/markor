@@ -21,6 +21,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Pair;
 import android.view.Menu;
@@ -514,29 +516,25 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
             case R.id.action_open_in_terminal: {
                 File currentFolder = getCurrentFolder();
                 if (currentFolder != null) {
-                    String path = currentFolder.getPath();
+                    String command = "";
                     switch (_id) {
-                        case R.id.action_git_sync:{
-                            TermuxUtils.runCommand(getContext(), "git add . ; git commit -m sync ; git pull ; git push", path);
-                            return true;
-                        }
-                        case R.id.action_git_commit:{
-                            TermuxUtils.runCommand(getContext(), "git add . ; git commit -m commit", path);
-                            return true;
-                        }
-                        case R.id.action_git_pull:{
-                            TermuxUtils.runCommand(getContext(), "git pull", path);
-                            return true;
-                        }
-                        case R.id.action_git_push:{
-                            TermuxUtils.runCommand(getContext(), "git push", path);
-                            return true;
-                        }
-                        case R.id.action_open_in_terminal:{
-                            TermuxUtils.runCommand(getContext(), "", path);
-                            return true;
-                        }
+                        case R.id.action_git_sync:
+                            command = "git add . ; git commit -m sync ; git pull ; git push";
+                            break;
+                        case R.id.action_git_commit:
+                            command = "git add . ; git commit -m commit";
+                            break;
+                        case R.id.action_git_pull:
+                            command = "git pull";
+                            break;
+                        case R.id.action_git_push:
+                            command = "git push";
+                            break;
+                        case R.id.action_open_in_terminal:
+                            command = "";
+                            break;
                     }
+                    TermuxUtils.runTermuxCommand(getContext(), command, getCurrentFolder());
                 }
                 return true;
             }
