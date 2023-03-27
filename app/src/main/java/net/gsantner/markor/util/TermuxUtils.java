@@ -11,7 +11,7 @@ import java.io.File;
 public class TermuxUtils {
     private static boolean runCommand(final Context context, final String command, final String workdir) {
         String welcome = command.isEmpty() ? "echo" : "echo \"$ " + command + "\"";
-        String bash = command.isEmpty() ? "bash -il" : " ; read -s -n1 -p [exit]";
+        String bash = command.isEmpty() ? "bash -il" : " ; read -s -n1 -p \"[Press any key to exit]\"";
 
         Intent intent = new Intent();
         intent.setClassName("com.termux", "com.termux.app.RunCommandService");
