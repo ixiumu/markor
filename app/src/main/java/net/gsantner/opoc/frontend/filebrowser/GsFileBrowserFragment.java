@@ -47,6 +47,7 @@ import net.gsantner.markor.frontend.filesearch.FileSearchEngine;
 import net.gsantner.markor.frontend.textview.TextViewUtils;
 import net.gsantner.markor.model.AppSettings;
 import net.gsantner.markor.util.MarkorContextUtils;
+import net.gsantner.markor.util.TermuxUtils;
 import net.gsantner.opoc.frontend.base.GsFragmentBase;
 import net.gsantner.opoc.model.GsSharedPreferencesPropertyBackend;
 import net.gsantner.opoc.util.GsContextUtils;
@@ -249,6 +250,7 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
             _fragmentMenu.findItem(R.id.action_copy_selected_items).setVisible((selMulti1 || selMultiMore) && selWritable && !_cu.isUnderStorageAccessFolder(getContext(), getCurrentFolder(), true));
             _fragmentMenu.findItem(R.id.action_share_files).setVisible(selFilesOnly && (selMulti1 || selMultiMore) && !_cu.isUnderStorageAccessFolder(getContext(), getCurrentFolder(), true));
             _fragmentMenu.findItem(R.id.action_go_to).setVisible(!_filesystemViewerAdapter.areItemsSelected());
+            _fragmentMenu.findItem(R.id.action_git).setVisible(!_filesystemViewerAdapter.areItemsSelected());
             _fragmentMenu.findItem(R.id.action_sort).setVisible(!_filesystemViewerAdapter.areItemsSelected());
             _fragmentMenu.findItem(R.id.action_import).setVisible(!_filesystemViewerAdapter.areItemsSelected() && !_filesystemViewerAdapter.isCurrentFolderVirtual());
             _fragmentMenu.findItem(R.id.action_settings).setVisible(!_filesystemViewerAdapter.areItemsSelected());
@@ -362,6 +364,7 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
         return _filesystemViewerAdapter;
     }
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final int _id = item.getItemId();
@@ -499,6 +502,40 @@ public class GsFileBrowserFragment extends GsFragmentBase<GsSharedPreferencesPro
                         _cu.setClipboard(getContext(), GsFileUtils.readTextFileFast(file).first);
                         Toast.makeText(getContext(), R.string.clipboard, Toast.LENGTH_SHORT).show();
                         _filesystemViewerAdapter.unselectAll();
+                    }
+                }
+                return true;
+            }
+
+            case R.id.action_git_sync:
+            case R.id.action_git_commit:
+            case R.id.action_git_pull:
+            case R.id.action_git_push:
+            case R.id.action_open_in_terminal: {
+                File currentFolder = getCurrentFolder();
+                if (currentFolder != null) {
+                    String path = currentFolder.getPath();
+                    switch (_id) {
+                        case R.id.action_git_sync:{
+                            TermuxUtils.runCommand(getContext(), "git add . ; git commit -m sync ; git pull ; git push", path);
+                            return true;
+                        }
+                        case R.id.action_git_commit:{
+                            TermuxUtils.runCommand(getContext(), "git add . ; git commit -m commit", path);
+                            return true;
+                        }
+                        case R.id.action_git_pull:{
+                            TermuxUtils.runCommand(getContext(), "git pull", path);
+                            return true;
+                        }
+                        case R.id.action_git_push:{
+                            TermuxUtils.runCommand(getContext(), "git push", path);
+                            return true;
+                        }
+                        case R.id.action_open_in_terminal:{
+                            TermuxUtils.runCommand(getContext(), "", path);
+                            return true;
+                        }
                     }
                 }
                 return true;

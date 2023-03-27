@@ -394,6 +394,16 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="drag">Drag</string>
     <string name="created">Created</string>
 
+    <string name="git">Git</string>
+    <string name="clone">Clone</string>
+    <string name="commit">Commit</string>
+    <string name="compare">Compare</string>
+    <string name="pull">Pull</string>
+    <string name="push">Push</string>
+    <string name="branch">Branch</string>
+    <string name="merge">Merge</string>
+    <string name="open_in_terminal">Open in Terminal</string>
+
     <string name="file_encryption_password">File encryption password</string>
     <string name="no_password_set_cannot_encrypt_decrypt">No password set, cannot encrypt or decrypt.\nGo to Settings -> General -> Password to set a password.</string>
     <string name="encrypt_file_content">Encrypt file content</string>

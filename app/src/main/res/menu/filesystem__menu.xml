@@ -138,6 +138,41 @@
 
     </item>
 
+    <item
+        android:id="@+id/action_git"
+        android:icon="@drawable/ic_git_24dp"
+        android:title="@string/git"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/action_git_sync"
+                android:icon="@drawable/ic_baseline_sync_24dp"
+                android:title="@string/sync"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_git_commit"
+                android:icon="@drawable/ic_git_commit_24dp"
+                android:title="@string/commit"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_git_pull"
+                android:icon="@drawable/ic_git_pull_24dp"
+                android:title="@string/pull"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_git_push"
+                android:icon="@drawable/ic_git_network_24dp"
+                android:title="@string/push"
+                app:showAsAction="never" />
+            <item
+                android:id="@+id/action_open_in_terminal"
+                android:icon="@drawable/ic_baseline_terminal_24dp"
+                android:title="@string/open_in_terminal"
+                app:showAsAction="never" />
+
+        </menu>
+    </item>
 
     <item
         android:id="@+id/action_sort"

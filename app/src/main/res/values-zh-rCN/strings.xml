@@ -440,4 +440,17 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="document_error_clip">出现错误：文本已复制到剪贴板。</string>
     <string name="wont_save_min_length">未自动保存字符数不到 %d 的文件以防止数据丢失。</string>
     <string name="advanced_filtering_help"><![CDATA[<small><a href="https://www.github.com/gsantner/markor/discussions/1940">高级过滤语法</a></small>]]></string>
+
+    <string name="quicknote">快速笔记</string>
+    <string name="todo">待办</string>
+
+    <string name="git">Git</string>
+    <string name="clone">克隆</string>
+    <string name="commit">暂存</string>
+    <string name="compare">比较</string>
+    <string name="pull">拉取</string>
+    <string name="push">推送</string>
+    <string name="branch">分支</string>
+    <string name="merge">合并</string>
+    <string name="open_in_terminal">在终端中打开</string>
 </resources>
