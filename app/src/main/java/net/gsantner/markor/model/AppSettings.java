@@ -252,7 +252,7 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
     }
 
     public boolean isFileBrowserFilterShowDotFiles() {
-        return getBool(R.string.pref_key__show_dot_files_v2, true);
+        return getBool(R.string.pref_key__show_dot_files_v2, false);
     }
 
     public boolean isShowSettingsOptionInMainToolbar() {
@@ -621,7 +621,7 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
     }
 
     public boolean isSearchInContent() {
-        return getBool(R.string.pref_key__is_search_in_content, false);
+        return getBool(R.string.pref_key__is_search_in_content, true);
     }
 
     public void setSearchInContent(final boolean isSearchInContent) {
@@ -647,7 +647,7 @@ public class AppSettings extends GsSharedPreferencesPropertyBackend {
     }
 
     public List<String> getFileSearchIgnorelist() {
-        String pref = getString(R.string.pref_key__filesearch_ignorelist, "");
+        String pref = getString(R.string.pref_key__filesearch_ignorelist, ".git\n.obsidian\n.app");
         return Arrays.asList(pref.replace("\r", "").replace("\n\n", "\n").split("\n"));
     }
 

@@ -31,7 +31,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:theme="@style/LightTextToolbarOverlay"
-            app:title="@string/app_name" />
+            app:title="@string/notebook" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -82,9 +82,9 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="language">语言</string>
     <string name="open_with">打开方式</string>
     <string name="sort_by">排序方式</string>
-    <string name="date">日期</string>
+    <string name="date">修改时间</string>
     <string name="deleteme____1">名称</string>
-    <string name="size">按文件大小排序</string>
+    <string name="size">大小</string>
     <string name="reverse_order">逆向排序</string>
     <string name="contribute">贡献</string>
     <string name="project_page">项目主页</string>
@@ -203,8 +203,6 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="top">顶端</string>
     <string name="bottom">底端</string>
     <string name="center">居中</string>
-    <string name="actionbutton_spacing">ActionButton 间距</string>
-    <string name="horizontal_space_between_actionbuttons">ActionButton 之间的水平间距</string>
     <string name="center_text">居中文字</string>
     <string name="edit_text_in_center_of_screen">在屏幕中央编辑文本</string>
     <string name="clipboard">剪切板</string>
@@ -365,7 +363,6 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="expand_collapse">展开/收起</string>
     <string name="essential">基础设置</string>
     <string name="append_human_readable_uuid_to_new_tasks">将人类可读的 UUID 附加到新任务</string>
-    <string name="action_order">操作顺序</string>
     <string name="toggle_action_visibility">切换操作可见性</string>
     <string name="load_default_settings">加载默认设置</string>
     <string name="drag">拖动</string>
@@ -444,6 +441,16 @@ work. If not, see <https://creativecommons.org/publicdomain/zero/1.0/>.
     <string name="quicknote">快速笔记</string>
     <string name="todo">待办</string>
     <string name="backup">备份</string>
+    <string name="mime_type">类型</string>
+    <string name="dotfiles">显示隐藏</string>
+
+    <string name="features">实验性</string>
+    <string name="actionbutton">工具栏</string>
+    <string name="action_order">自定义</string>
+
+    <string name="app_drawer_launcher_special_files_description">应用快捷方式 - 待办事项，快速笔记</string>
+    <string name="actionbutton_spacing">工具栏图标间距</string>
+    <string name="horizontal_space_between_actionbuttons">工具栏图标之间的水平间距</string>
 
     <string name="git">Git</string>
     <string name="clone">克隆</string>
